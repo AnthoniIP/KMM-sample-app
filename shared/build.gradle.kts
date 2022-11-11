@@ -1,11 +1,11 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    kotlin(Plugins.multiplatform)
+    id(Plugins.androidLibrary)
 }
 
 kotlin {
     android()
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -47,10 +47,10 @@ kotlin {
 }
 
 android {
-    namespace = "com.ipsoft.kmmsampleproject"
-    compileSdk = 32
+    namespace = Namespaces.shared
+    compileSdk = Playstore.compileSdk
     defaultConfig {
-        minSdk = 24
-        targetSdk = 32
+        minSdk = Playstore.minSdk
+        targetSdk = Playstore.targetSdk
     }
 }

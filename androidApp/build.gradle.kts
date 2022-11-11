@@ -1,23 +1,23 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
+    id(Plugins.androidApplication)
+    kotlin(Plugins.android)
 }
 
 android {
-    namespace = "com.ipsoft.kmmsampleproject.android"
-    compileSdk = 32
+    namespace = Playstore.applicationId
+    compileSdk = Playstore.compileSdk
     defaultConfig {
-        applicationId = "com.ipsoft.kmmsampleproject.android"
-        minSdk = 24
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = Playstore.applicationId
+        minSdk = Playstore.minSdk
+        targetSdk = Playstore.targetSdk
+        versionCode = Playstore.versionCode
+        versionName = Playstore.versionName
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.0"
+        kotlinCompilerExtensionVersion = Versions.composeCompiler
     }
     packagingOptions {
         resources {
@@ -25,7 +25,7 @@ android {
         }
     }
     buildTypes {
-        getByName("release") {
+        getByName(BuildType.release) {
             isMinifyEnabled = false
         }
     }
@@ -33,10 +33,10 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling:1.2.1")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.2.1")
-    implementation("androidx.compose.foundation:foundation:1.2.1")
-    implementation("androidx.compose.material:material:1.2.1")
-    implementation("androidx.activity:activity-compose:1.5.1")
+    implementation(Compose.ui)
+    implementation(Compose.tooling)
+    implementation(Compose.toolingPreview)
+    implementation(Compose.foundation)
+    implementation(Compose.material)
+    implementation(Compose.activity)
 }
